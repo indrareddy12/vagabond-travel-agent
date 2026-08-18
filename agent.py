@@ -128,7 +128,11 @@ def trigger_parallel_fetch_node(state: TravelState) -> TravelState:
 def fetch_weather_node(state: TravelState) -> TravelState:
     logger.info("Executing weather query...")
     city = state.get("city", "")
-    forecast = fetch_weather_forecast(city)
+    try:
+        forecast = fetch_weather_forecast(city)
+    except Exception as e:
+        logger.error(f"Weather fetch failed for {city}: {e}")
+        forecast = []
     return {
         "weather_forecast": forecast
     }
@@ -136,7 +140,11 @@ def fetch_weather_node(state: TravelState) -> TravelState:
 def fetch_images_node(state: TravelState) -> TravelState:
     logger.info("Executing image retrieval query...")
     city = state.get("city", "")
-    images = fetch_images_tool(city)
+    try:
+        images = fetch_images_tool(city)
+    except Exception as e:
+        logger.error(f"Image fetch failed for {city}: {e}")
+        images = []
     return {
         "image_urls": images
     }
