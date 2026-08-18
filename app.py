@@ -240,7 +240,7 @@ if user_query:
                         with cols[idx]:
                             st.image(img_url, use_container_width=True, caption=f"View of {city_name} #{idx+1}")
                 else:
-                    st.info("No images fetched for this destination.")
+                    st.warning("⚠️ Photo gallery is currently unavailable for this destination.")
                     
             with col_right:
                 st.markdown(f'<h3 class="section-title">☀️ Weather & Forecast</h3>', unsafe_allow_html=True)
@@ -295,8 +295,8 @@ if user_query:
                     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
                     
                 else:
-                    st.info("Weather forecast data not available.")
+                    st.warning("⚠️ Weather forecast service is currently offline. Please check back later.")
                     
         except Exception as e:
-            st.error(f"An error occurred during workflow execution: {e}")
+            st.error("⚠️ **Workflow Execution Error**: The AI assistant encountered an unexpected error processing your query. Please check your connection or try another search.")
             logger.exception("Error executing agent")
