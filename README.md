@@ -83,8 +83,8 @@ graph TD;
 
 ### 1. Clone the repository
 ```bash
-git clone <repository-url>
-cd AIML-Engineer-Intern
+git clone https://github.com/indrareddy12/vagabond-travel-agent.git
+cd vagabond-travel-agent
 ```
 
 ### 2. Install dependencies
