@@ -99,6 +99,12 @@ python -m streamlit run app.py
 
 *Note: If the streamlit binary is not on your shell PATH, launching it via `python -m streamlit` guarantees successful execution.*
 
+### 4. Run the test suite
+To execute the unit tests and verify the graph routing logic:
+```bash
+python -m unittest test_agent.py
+```
+
 ---
 
 ## API Configuration
